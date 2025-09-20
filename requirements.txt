@@ -1,0 +1,29 @@
+# 테스트 프레임워크
+pytest>=7.4.0
+pytest-xdist>=3.3.1  # 병렬 테스트 실행
+pytest-html>=3.2.0   # HTML 리포트
+allure-pytest>=2.13.2
+
+# 모바일 자동화
+appium-python-client>=3.1.0
+selenium>=4.15.0
+
+# 웹 자동화 (선택적)
+playwright>=1.40.0
+
+# API 테스트
+requests>=2.31.0
+requests-mock>=1.11.0  # API 테스트용 모킹
+
+# 데이터 검증
+pydantic>=2.5.0
+
+# 유틸리티
+python-dotenv>=1.0.0  # 환경변수 관리
+Pillow>=10.1.0        # 이미지 처리
+faker>=20.1.0         # 테스트 데이터 생성
+
+# 로깅 및 모니터링
+structlog>=23.2.0
+PyJWT 
+cryptography

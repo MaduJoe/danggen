@@ -1,0 +1,83 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "danggen-e2e-automation"
+version = "0.1.0"
+description = "당근마켓 E2E 테스트 자동화 프레임워크"
+authors = [{name = "Test Automation Team", email = "test@example.com"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Testing",
+]
+
+dependencies = [
+    "pytest>=7.4.0",
+    "pytest-xdist>=3.3.1",
+    "pytest-html>=3.2.0",
+    "allure-pytest>=2.13.2",
+    "appium-python-client>=3.1.0",
+    "selenium>=4.15.0",
+    "playwright>=1.40.0",
+    "requests>=2.31.0",
+    "requests-mock>=1.11.0",
+    "pydantic>=2.5.0",
+    "python-dotenv>=1.0.0",
+    "Pillow>=10.1.0",
+    "faker>=20.1.0",
+    "structlog>=23.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.7.0",
+    "isort>=5.12.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-v",
+    "--tb=short",
+    "--strict-markers",
+    "--strict-config",
+    "--alluredir=reports/allure-results",
+]
+markers = [
+    "location: 위치 기반 테스트",
+    "api: API 테스트",
+    "mobile: 모바일 UI 테스트",
+    "e2e: End-to-End 테스트",
+    "smoke: 스모크 테스트",
+    "regression: 회귀 테스트",
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
