@@ -28,7 +28,7 @@ jobs:
     
     steps:
       - name: 코드 체크아웃
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         
       - name: Python 환경 설정
         uses: actions/setup-python@v4
@@ -180,7 +180,7 @@ jobs:
     
     steps:
       - name: 코드 체크아웃
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         
       - name: 모든 테스트 결과 다운로드
         uses: actions/download-artifact@v3
